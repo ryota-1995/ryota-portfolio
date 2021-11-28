@@ -1,0 +1,19 @@
+<h5 class="mx-auto" style="width: 200px;">検索結果</h5>
+
+<br>
+
+<table>
+  <tbody>
+      <tr>
+      <% @live.each do |live| %>
+      <td><%=live.title %></td>
+      <td><%=live.date %></td>
+      <td><%=live.time %></td>
+      <td><%=live.place %></td>
+      <td><%live.performers.each do |performer| %></td>
+      <td><%=performer.performer %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

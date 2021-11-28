@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ドル探！！</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+   <header class="all-width">
+   <div id="logo">
+    <a href="#">ドル探！！</a>
+   </div>
+   <nav>
+    <div id="navigation">
+       <%= link_to 'ライブ＆握手会検索', root_path %>
+       <%= link_to 'ログイン', "/users/login" %>
+    </div>
+   </nav>
+   </header>
+   <%= yield %>
+ </body>
+</html>

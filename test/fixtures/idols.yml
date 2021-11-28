@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  idol_group: MyString
+  birthday: 2021-10-03
+  age: 1
+  birthplace: 2021-10-03
+  height: 1
+  debut_year: 1
+  office: MyString
+  music_label: MyString
+  hp_url: MyString
+
+two:
+  name: MyString
+  idol_group: MyString
+  birthday: 2021-10-03
+  age: 1
+  birthplace: 2021-10-03
+  height: 1
+  debut_year: 1
+  office: MyString
+  music_label: MyString
+  hp_url: MyString
