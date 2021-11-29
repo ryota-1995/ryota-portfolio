@@ -20,10 +20,15 @@
    <nav>
     <div id="navigation">
        <%= link_to 'ライブ＆握手会検索', root_path %>
-       <%= link_to 'ログイン', "/users/login" %>
+       <%= link_to 'ログイン', "/users/new" %>
     </div>
    </nav>
    </header>
+   <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
    <%= yield %>
  </body>
 </html>

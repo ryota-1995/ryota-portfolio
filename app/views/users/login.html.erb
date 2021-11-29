@@ -1,2 +1,8 @@
-<h1>Users#login</h1>
-<p>Find me in app/views/users/login.html.erb</p>
+<%= form_with url: "users/login", method: :get, local: true do |f| %>
+<p>メールアドレス</p>
+<%= f.text_field :name %>
+<p>パスワード</p>
+<%= f.password_field :password %>
+  <%= f.submit :ログイン %>
+<% end %>
+

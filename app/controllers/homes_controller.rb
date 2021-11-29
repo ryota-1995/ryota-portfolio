@@ -1,4 +1,4 @@
-class LivesController < ApplicationController
+class HomesController < ApplicationController
   def index
     @posts = Post.all.order(created_at: :desc)
   end
@@ -13,14 +13,14 @@ class LivesController < ApplicationController
   def create
     @post = Post.new(content: params[:content])
     @post.save
-    redirect_to("/lives/index")
+    redirect_to("/homes/index")
   end
 
   def search
     if params[:name].present?
-      @live = Live.where("title LIKE ? OR place LIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
+      @lives = Live.where("title LIKE ? OR place LIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
     else
-      @live = Live.none
+      @lives = Live.none
     end
   end
 end

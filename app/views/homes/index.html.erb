@@ -1,6 +1,6 @@
 <h1 class="mx-auto" style="width: 200px;">ドル探</h1>
 <div class="mx-auto" style="width: 200px;">
-<%= form_with url: "lives/search", method: :get, local: true do |f| %>
+<%= form_with url: "homes/search", method: :get, local: true do |f| %>
   <%= f.text_field :name %>
   <%= f.submit :検索 %>
 <% end %>
@@ -19,7 +19,7 @@
 
 <div class="mx-auto" style="width: 200px;">
 <h5>新規投稿</h5>
-<%= form_with url: "lives/create", method: :post, local: true do |f| %>
+<%= form_with url: "homes/create", method: :post, local: true do |f| %>
   <%= f.text_area :name %>
   <%= f.submit :投稿 %>
 <% end %>
