@@ -1,6 +1,6 @@
 <h1 class="mx-auto" style="width: 200px;">ドル探</h1>
 <div class="mx-auto" style="width: 200px;">
-<%= form_with url: "homes/search", method: :get, local: true do |f| %>
+<%= form_with url: "/homes/search", method: :get, local: true do |f| %>
   <%= f.text_field :name %>
   <%= f.submit :検索 %>
 <% end %>
@@ -11,7 +11,7 @@
 <div class="mx-auto" style="width: 200px;">
 <% @posts.each do |post| %>
   <div>
-    <%=post.created_at%><br>
+    <%=post.created_at.to_s(:datetime_jp)%><br>
     <%= link_to(post.content, "/posts/#{post.id}") %>
   </div>
 <% end %>
@@ -19,8 +19,8 @@
 
 <div class="mx-auto" style="width: 200px;">
 <h5>新規投稿</h5>
-<%= form_with url: "homes/create", method: :post, local: true do |f| %>
-  <%= f.text_area :name %>
+<%= form_with url: "/homes/create", method: :post, local: true do |f| %>
+  <%= f.text_area :content %>
   <%= f.submit :投稿 %>
 <% end %>
 </div>

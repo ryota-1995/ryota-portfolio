@@ -18,5 +18,8 @@ module IdolScrape
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    #日本時間を適用するために追加。
+    config.time_zone = "Tokyo"
   end
 end

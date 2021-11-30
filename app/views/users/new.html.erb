@@ -1,13 +1,11 @@
 <h1>ユーザー作成</h1>
 
-<%= form_with url: "users/login", method: :get, local: true do |f| %>
+<%= form_with url: "/users/create", method: :get, local: true do |f| %>
 <p>ユーザー名</p>
 <%= f.text_field :name %>
 <p>メールアドレス</p>
 <%= f.text_field :email %>
 <p>パスワード</p>
 <%= f.text_field :password %>
-<p>パスワード確認</p>
-<%= f.password_field :password %>
   <%= f.submit :新規登録 %>
 <% end %>

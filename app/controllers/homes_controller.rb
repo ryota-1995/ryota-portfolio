@@ -13,7 +13,7 @@ class HomesController < ApplicationController
   def create
     @post = Post.new(content: params[:content])
     @post.save
-    redirect_to("/homes/index")
+    redirect_to(root_path)
   end
 
   def search
