@@ -1,0 +1,14 @@
+<% if @error_message %>
+  <div>
+    <%= @error_message %>
+  </div>
+<% end %>
+
+<%= form_with url: "login", method: :post, local: true do |f| %>
+<p>メールアドレス</p>
+<%= f.text_field :email %>
+<p>パスワード</p>
+<%= f.password_field :password %>
+  <%= f.submit :ログイン %>
+<% end %>
+
