@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
+      #ブラウザの持つsessionというファイルの:nameキーに値が入る。
+      session[:name] = @user.name
       #flash[:notice]に値が入り、application.html.erbへ
       flash[:notice] = "ログインしました"
       redirect_to("/")
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
       password: params[:password],
     )
     if @user.save
+      session[:name] = @user.name
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/homes/index")
     else

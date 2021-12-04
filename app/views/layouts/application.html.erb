@@ -21,15 +21,13 @@
     <div id="navigation">
        <%= link_to 'ライブ＆握手会検索', root_path %>
        <%= link_to 'ログイン', "/login" %>
+       <%=flash[:notice]%>
+       <% if session[:user_id] %>
+       <%= link_to session[:user_id], root_path %>   
+        <% end %>
     </div>
    </nav>
    </header>
-
-   <% if flash[:notice] %>
-      <div>
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
 
    <%= yield %>
 
