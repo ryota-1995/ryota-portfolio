@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  #"ActionController::InvalidAuthenticityToken" というエラーが出るのでCSRF保護を無効に
-  protect_from_forgery with: :null_session
+  #"ActionController::InvalidAuthenticityToken" というエラーが出るのでloginアクション時のみCSRF保護を無効に
+  protect_from_forgery except: :login
 
   def index
   end
@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email], password: params[:password])
     if @user
       #ブラウザの持つsessionというファイルの:nameキーに値が入る。
-      session[:name] = @user.name
+      session[:user_name] = @user.name
       #flash[:notice]に値が入り、application.html.erbへ
       flash[:notice] = "ログインしました"
       redirect_to("/")
@@ -33,10 +33,13 @@ class UsersController < ApplicationController
       password: params[:password],
     )
     if @user.save
-      session[:name] = @user.name
+      session[:user_name] = @user.name
       flash[:notice] = "ユーザー登録が完了しました"
-      redirect_to("/homes/index")
+      redirect_to("/")
     else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = params[:email]
+      @password = params[:password]
       render("users/new")
     end
   end
@@ -46,5 +49,11 @@ class UsersController < ApplicationController
 
   #loginのgetで送られる
   def login_form
+  end
+
+  def logout
+    session[:user_name] = nil
+    flash[:notice] = "ログアウトしました"
+    redirect_to("/")
   end
 end

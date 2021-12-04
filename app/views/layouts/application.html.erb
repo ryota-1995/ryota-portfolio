@@ -19,15 +19,20 @@
    </div>
    <nav>
     <div id="navigation">
-       <%= link_to 'ライブ＆握手会検索', root_path %>
-       <%= link_to 'ログイン', "/login" %>
-       <%=flash[:notice]%>
-       <% if session[:user_id] %>
-       <%= link_to session[:user_id], root_path %>   
-        <% end %>
+      <%= link_to 'ライブ＆握手会検索', root_path %>
+      <% if session[:user_name] %>
+      <%= link_to session[:user_name], "#" %>
+      <%= link_to 'ログアウト', "/logout" %>
+      <% else %>
+      <%= link_to 'ログイン', "/login" %>
+      <% end %>
     </div>
    </nav>
    </header>
+
+   <div>
+     <%=flash[:notice]%>
+   </div>
 
    <%= yield %>
 
