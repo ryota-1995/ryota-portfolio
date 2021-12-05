@@ -1,2 +1,0 @@
-class IdolsController < ApplicationController
-end

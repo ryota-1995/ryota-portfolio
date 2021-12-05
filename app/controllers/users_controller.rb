@@ -10,10 +10,10 @@ class UsersController < ApplicationController
 
   #loginのpostで送られる
   def login
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
       #ブラウザの持つsessionというファイルの:nameキーに値が入る。
-      session[:user_name] = @user.name
+      session[:user_id] = @user.id
       #flash[:notice]に値が入り、application.html.erbへ
       flash[:notice] = "ログインしました"
       redirect_to("/")
@@ -33,11 +33,11 @@ class UsersController < ApplicationController
       password: params[:password],
     )
     if @user.save
-      session[:user_name] = @user.name
+      session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/")
     else
-      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @error_message = "別の値を入力してください"
       @email = params[:email]
       @password = params[:password]
       render("users/new")
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    session[:user_name] = nil
+    session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
     redirect_to("/")
   end

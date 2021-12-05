@@ -15,13 +15,12 @@
   <body>
    <header class="all-width">
    <div id="logo">
-    <a href="#">ドル探！！</a>
+    <h5>ドル探！！</h5>
    </div>
    <nav>
     <div id="navigation">
       <%= link_to 'ライブ＆握手会検索', root_path %>
-      <% if session[:user_name] %>
-      <%= link_to session[:user_name], "#" %>
+      <% if session[:user_id] %>
       <%= link_to 'ログアウト', "/logout" %>
       <% else %>
       <%= link_to 'ログイン', "/login" %>
@@ -33,6 +32,8 @@
    <div>
      <%=flash[:notice]%>
    </div>
+
+   <br>
 
    <%= yield %>
 
