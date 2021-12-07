@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
-  #"ActionController::InvalidAuthenticityToken" というエラーが出るのでloginアクション時のみCSRF保護を無効に
-  protect_from_forgery except: :login
-
-  def index
-  end
+  #"ActionController::InvalidAuthenticityToken" というエラーが出るのでLoginアクションのみCSRF保護を無効に
+  protect_from_forgery :except => [:login, :googlecreate]
 
   def new
   end
@@ -44,9 +41,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-  end
-
   #loginのgetで送られる
   def login_form
   end
@@ -55,5 +49,20 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "ログアウトしました"
     redirect_to("/")
+  end
+
+  def googlecreate
+    user = User.from_omniauth(request.env["omniauth.auth"])
+    if user.save
+      session[:user_id] = user.id
+      redirect_to root_path
+    else
+      redirect_to("/")
+    end
+  end
+
+  def googledestroy
+    session[:user_id] = nil
+    redirect_to new_session_path
   end
 end

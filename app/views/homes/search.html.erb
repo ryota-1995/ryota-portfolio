@@ -13,6 +13,7 @@
       <td><%live.performers.each do |performer| %></td>
       <td><%=performer.performer %></td>
       <% end %>
+      <td><%= button_to '予約する',live.href%></td>
       </tr>
       <% end %>
   </tbody>

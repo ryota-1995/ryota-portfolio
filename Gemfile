@@ -69,8 +69,6 @@ gem "activesupport"
 # APIキーとAPIシークレットキーを環境変数に保存するため。
 gem "dotenv-rails"
 
-# TwitterAPIの利用
-gem "omniauth-twitter"
-gem "omniauth"
+gem "omniauth-google-oauth2"
 
-gem "whenever", require: false
+gem "omniauth-rails_csrf_protection", "~> 1.0"

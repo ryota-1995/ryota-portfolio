@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   get "homes/new" => "homes#new"
   get "users/new" => "users#new"
   get "users/create" => "users#create"
+
   get "login" => "users#login_form"
   post "login" => "users#login"
   get "logout" => "users#logout"
+
+  post "auth/:provider/callback", to: "users#googlecreate"
+  get "auth/failure", to: redirect("/")
+  get "signout", to: "users#googledestroy", as: "signout"
 end

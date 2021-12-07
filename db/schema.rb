@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_07_020328) do
+ActiveRecord::Schema.define(version: 2021_12_07_122112) do
+
+  create_table "googleusers", charset: "utf8mb3", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.string "name"
+    t.string "email"
+    t.string "image"
+    t.string "oauth_token"
+    t.datetime "oauth_expires_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "lives", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
@@ -20,7 +32,6 @@ ActiveRecord::Schema.define(version: 2021_12_07_020328) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "time"
-    t.string "performer"
   end
 
   create_table "performers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
