@@ -3,7 +3,7 @@ require "mechanize"
 require "active_support/all"
 
 agent = Mechanize.new
-agent.user_agent_alias = "Mac Safari"
+agent.user_agent_alias = "Linux Firefox"
 page = agent.get("https://eplus.jp/sf/live/idol/p2")
 
 date = []

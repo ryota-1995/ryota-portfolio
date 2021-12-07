@@ -12,9 +12,8 @@
 <% @posts.each do |post| %>
   <div>
     <%=post.created_at.to_s(:datetime_jp)%><br>
-    <%=post.user.name%>
+    <%=post.user.name%><br>
     <%= link_to(post.content, "#") %>
-
   </div>
 <% end %>
 </div><br><br>

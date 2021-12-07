@@ -10,22 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_05_015046) do
-
-  create_table "girls", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.string "idol_group"
-    t.date "birthday"
-    t.integer "age"
-    t.date "birthplace"
-    t.integer "height"
-    t.integer "debut_year"
-    t.string "office"
-    t.string "music_label"
-    t.string "hp_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2021_12_07_020328) do
 
   create_table "lives", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "title"
