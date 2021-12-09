@@ -8,10 +8,10 @@
 <tr><th>日付</th><td><%=live.date %></td></tr>
 <tr><th>開演時刻</th><td><%=live.time %></td></tr>
 <tr><th>場所</th><td><%=live.place %></td></tr>
-<tr><th>出演者</th>
+<tr><th>キーワード</th>
 <td>
 <%live.performers.each do |performer| %>
-<%=performer.performer %>
+<%=performer.performer %>.
 <% end %>
 </td></tr>
 <tr><th><%= button_to '予約する',live.href%></th></tr>

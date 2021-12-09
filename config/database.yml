@@ -34,9 +34,9 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  reconnect: false
+  reconnect: true
   database: idol_scrape
   pool: 5
   username: ryota01
   password: password
-  host: localhost
+  host: my-scrape-app.com
