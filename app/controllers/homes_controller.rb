@@ -29,8 +29,9 @@ class HomesController < ApplicationController
   end
 
   def search
-    if params[:name].present?
-      @lives = Live.where("title LIKE ? OR place LIKE ?", "%#{params[:name]}%", "%#{params[:name]}%")
+    @result = params[:name]
+    if @result.present?
+      @lives = Live.where("title LIKE ? OR place LIKE ?", "%#{@result}%", "%#{@result}%")
     else
       flash[:notice] = "フォームが空です。"
       redirect_to(root_path)
