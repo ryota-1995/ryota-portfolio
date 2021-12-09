@@ -3,18 +3,17 @@
 <br>
 
 <table>
-  <tbody>
-      <tr>
-      <% @lives.each do |live| %>
-      <td><%=live.title %></td>
-      <td><%=live.date %></td>
-      <td><%=live.time %></td>
-      <td><%=live.place %></td>
-      <td><%live.performers.each do |performer| %></td>
-      <td><%=performer.performer %></td>
-      <% end %>
-      <td><%= button_to '予約する',live.href%></td>
-      </tr>
-      <% end %>
-  </tbody>
+<% @lives.each do |live| %>
+<tr><th>タイトル</th><td><%=live.title %></td></tr>
+<tr><th>日付</th><td><%=live.date %></td></tr>
+<tr><th>開演時刻</th><td><%=live.time %></td></tr>
+<tr><th>場所</th><td><%=live.place %></td></tr>
+<tr><th>出演者</th>
+<td>
+<%live.performers.each do |performer| %>
+<%=performer.performer %>
+<% end %>
+</td></tr>
+<tr><th><%= button_to '予約する',live.href%></th></tr>
+<% end %>
 </table>
