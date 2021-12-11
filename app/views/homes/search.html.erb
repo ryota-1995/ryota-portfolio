@@ -1,19 +1,21 @@
-<h5 class="mx-auto" style="width: 200px;">"<%=@result%>" の検索結果</h5>
+<h5 class="mx-auto" style="width: 300px;">"<%=@result%>" の検索結果 <%=@lives.count%>件</h5>
 
 <br>
 
+<div class="mx-auto" style="width: 200px;"><%=@error_message%></div>
+
+<div class = display>
 <% @lives.each do |live| %>
 <div class="box2">
-<table>
-<tr><td><%=live.date %>　<%=live.time %></td></tr>
-<tr><td><%=live.title %></td></tr>
-<tr><td><%=live.place %></td></tr>
-<tr><td>
+<div class = "title"><%=@date %>　<%=live.time %></div><br>
+<div><%=live.title %></div><br>
+<div><%=live.place %></div><br>
+<div>
 <%live.performers.each do |performer| %>
 <%=performer.performer %>.
 <% end %>
-</td></tr>
-<tr><th><%= button_to '予約する',live.href%></th></tr>
-</table>
-</div>
+</div><br>
+<div><%= button_to '予約する',live.href%></div>
+</div><br>
 <% end %>
+</div>
