@@ -1,4 +1,5 @@
 <h1 class="mx-auto" style="width: 200px;">ドル探</h1>
+<h3 class="mx-auto" style="width: 200px;">キーワードで検索</h3>
 <div class="mx-auto" style="width: 200px;">
 <%= form_with url: "/homes/search", method: :get, local: true do |f| %>
   <%= f.text_field :name %>
@@ -6,9 +7,23 @@
 <% end %>
 </div><br><br>
 
+<h3 class="mx-auto" style="width: 200px;">日付で検索</h3>
+<%= button_to '今日',"homes/today",method: :get%>
+<%= button_to '明日',"homes/tomorrow",method: :get%>
+<%= button_to '次の土曜',"homes/next_saturday",method: :get%>
+<%= button_to '次の日曜',"homes/next_monday",method: :get%>
+
 <h3 class="mx-auto" style="width: 200px;">投稿</h3>
 
 <div class="mx-auto" style="width: 200px;">
+<div class="mx-auto" style="width: 200px;">
+
+<h5>新規投稿</h5>
+<%= form_with url: "/homes/create", method: :post, local: true do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit :投稿 %>
+<% end %>
+</div>
 <% @posts.each do |post| %>
   <div>
     <%=post.created_at.to_s(:datetime_jp)%><br>
@@ -17,12 +32,4 @@
   </div>
 <% end %>
 </div><br><br>
-
-<div class="mx-auto" style="width: 200px;">
-<h5>新規投稿</h5>
-<%= form_with url: "/homes/create", method: :post, local: true do |f| %>
-  <%= f.text_area :content %>
-  <%= f.submit :投稿 %>
-<% end %>
-</div>
 

@@ -40,4 +40,32 @@ class HomesController < ApplicationController
       redirect_to(root_path)
     end
   end
+
+  def today
+    @time = Time.current
+    @lives = Live.where(date: @time)
+    @result = "本日のライブ情報"
+    render "/homes/search"
+  end
+
+  def tomorrow
+    @time = Time.current.tomorrow
+    @lives = Live.where(date: @time)
+    @result = "明日のライブ情報"
+    render "/homes/search"
+  end
+
+  def next_saturday
+    @time = Time.current.next_week(:saturday)
+    @lives = Live.where(date: @time)
+    @result = "次の土曜,#{@time.strftime("%-Y年%-m月%-d日")}"
+    render "/homes/search"
+  end
+
+  def next_monday
+    @time = Time.current.next_week(:monday)
+    @lives = Live.where(date: @time)
+    @result = "次の日曜,#{@time.strftime("%-Y年%-m月%-d日")}"
+    render "/homes/search"
+  end
 end

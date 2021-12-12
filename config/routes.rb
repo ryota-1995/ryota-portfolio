@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   get "idols/index" => "idols#index"
   get "homes/search" => "homes#search"
   post "homes/create" => "homes#create"
+  get "homes/today" => "homes#today"
+  get "homes/tomorrow" => "homes#tomorrow"
+  get "homes/next_saturday" => "homes#next_saturday"
+  get "homes/next_monday" => "homes#next_monday"
+
   get "/" => "homes#index"
   get "homes/new" => "homes#new"
   get "users/new" => "users#new"
