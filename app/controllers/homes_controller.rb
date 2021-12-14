@@ -1,10 +1,13 @@
 class HomesController < ApplicationController
+  impressionist :actions => [:show]
+
   def index
     @posts = Post.all.order(created_at: :desc)
   end
 
   def show
     @live = Live.find_by(id: params[:id])
+    impressionist(@live, nil, unique: [:session_hash])
   end
 
   def new

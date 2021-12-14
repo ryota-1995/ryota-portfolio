@@ -72,3 +72,6 @@ gem "dotenv-rails"
 gem "omniauth-google-oauth2"
 
 gem "omniauth-rails_csrf_protection", "~> 1.0"
+
+#Live情報のPV数を調べる用
+gem "impressionist"
