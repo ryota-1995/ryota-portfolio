@@ -4,17 +4,18 @@
 <%@date=@live.date%>
 <%@date=@date.strftime("%-Y年%-m月%-d日")%>
 <%#-----------------------------%>
-<div><%=@date %>　<%=@live.time %></div><br>
-<div><%=@live.title %></div><br>
-<div><%=@live.place %></div><br>
+<div><i class="fa fa-calendar-o"></i> <%=@date %></div>
+<div><i class="fa fa-clock-o"></i> <%=@live.time %></div><br>
+<div><i class="fa fa-asterisk"></i> <%=@live.title %></div><br>
+<div><i class="fa fa-map-marker"></i> <%=@live.place %></div><br>
 <div>
 <%@live.performers.each do |performer| %>
-<%=performer.performer %>.
+<%= button_to performer.performer,@live.href%>
 <% end %>
 </div><br>
 <div><%= button_to '予約する',@live.href%></div>
 <%#PV数をカウント%>
-<div><%= @live.impressionist_count %></div>
+<div><i class="fa fa-eye"></i><%=  @live.impressionist_count %></div>
 <%#--------------%>
 </div><br>
 </div>

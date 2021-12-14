@@ -19,11 +19,11 @@
    </div>
    <nav>
     <div id="navigation">
-      <%= link_to 'ライブ＆握手会検索', root_path %>
+      <i class="fa fa-search" aria-hidden="true"></i><%= link_to 'ライブ＆握手会検索', root_path %>
       <% if session[:user_id] %>
       <%= link_to 'ログアウト', "/logout" %>
       <% else %>
-      <%= link_to 'ログイン', "/login" %>
+      <i class="fa fa-sign-in" aria-hidden="true"></i><%= link_to 'ログイン', "/login" %>
       <% end %>
     </div>
    </nav>

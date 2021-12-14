@@ -114,6 +114,8 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     ffi (1.15.4-x64-mingw32)
+    font-awesome-rails (4.7.0.7)
+      railties (>= 3.2, < 7)
     globalid (0.5.2)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -297,6 +299,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   dotenv-rails
+  font-awesome-rails
   impressionist
   jbuilder (~> 2.7)
   jquery-rails

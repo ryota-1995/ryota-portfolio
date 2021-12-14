@@ -75,3 +75,5 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 
 #Live情報のPV数を調べる用
 gem "impressionist"
+
+gem "font-awesome-rails"
