@@ -4,11 +4,14 @@
   
 .display{
   justify-content: center;/*コンテンツを全体的に中央へ*/
+  display:flex; /*横並びにする*/
+  flex-wrap:wrap;/*折り返し*/
 }
 
 .box2 {
   padding: 0.5em 1em;
   margin: 1em;
+  width:30%;
   text-align:center;
   color: black;/*文字色*/
   background: #FFF;
@@ -16,12 +19,11 @@
   border-radius: 10px;/*角の丸み*/
 }
 
-/*メディアクエリ=画面の幅によって適用するCSSを変える(レスポンシブ)*/
+/*メディアクエリ:画面の幅によって適用するCSSを変える(レスポンシブ)*/
 
-@media screen and (min-width:1024px) {
+@media screen and (max-width:1090px) {
   /*　画面サイズが1024pxからはここを読み込む　*/
-  .display{
-   display:flex; /*横並びにする*/
-   flex-wrap:wrap;/*折り返し*/
+  .box2{
+    width:100%;
   }
 }
