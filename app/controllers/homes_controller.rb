@@ -3,6 +3,7 @@ class HomesController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
+    @lives = Live.order(impressions_count: :desc).take(3) # ソート機能を追加
   end
 
   def show

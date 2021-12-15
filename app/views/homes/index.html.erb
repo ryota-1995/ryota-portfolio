@@ -13,8 +13,11 @@
 <%= button_to '次の土曜',"homes/next_saturday",method: :get%>
 <%= button_to '次の日曜',"homes/next_monday",method: :get%>
 
-<h3 class="mx-auto" style="width: 200px;">投稿</h3>
+<%@lives.each do |live|%>
+<%= live.title%>
+<% end %>
 
+<h3 class="mx-auto" style="width: 200px;">投稿</h3>
 <div class="mx-auto" style="width: 200px;">
 <div class="mx-auto" style="width: 200px;">
 <h5>新規投稿</h5>
