@@ -8,8 +8,8 @@
 <% @lives.each do |live| %>
 <div class="box2">
 <%#日付データにフォーマットを適用して@dateに入れる%>
-<%@date=live.date%>
-<%@date=@date.strftime("%-Y年%-m月%-d日")%>
+
+<%@date=live.date.strftime("%-Y年%-m月%-d日")%>
 <%#-----------------------------%>
 <div><i class="fa fa-calendar-o"></i> <%=@date %></div>
 <div><i class="fa fa-clock-o"></i> <%=live.time %></div><br>

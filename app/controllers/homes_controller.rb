@@ -8,7 +8,7 @@ class HomesController < ApplicationController
 
   def show
     @live = Live.find_by(id: params[:id])
-    impressionist(@live, nil, unique: [:session_hash])
+    impressionist(@live, nil, unique: [:session_hash]) # 追記
   end
 
   def new
