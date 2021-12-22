@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "homes#index"
-  get "idols/index" => "idols#index"
+  get "homes/index" => "homes#index"
   get "homes/search" => "homes#search"
+  post "homes/search" => "homes#search"
   post "homes/create" => "homes#create"
-  get "/homes/:id" => "homes#show"
   get "homes/today" => "homes#today"
   get "homes/tomorrow" => "homes#tomorrow"
   get "homes/next_saturday" => "homes#next_saturday"
   get "homes/next_monday" => "homes#next_monday"
+  get "homes/search_button" => "homes#search_button"
+  get "/homes/:id" => "homes#show"
 
   get "/" => "homes#index"
   get "homes/new" => "homes#new"

@@ -17,7 +17,7 @@
 <div><i class="fa fa-map-marker"></i> <%=live.place %></div><br>
 <div>
 <%live.performers.each do |performer| %>
-<%= button_to performer.performer, live.href%>
+<%= button_to performer.performer,"/homes/search_button", { method: :get, params: {name: performer.performer} } %>
 <% end %>
 </div><br>
 <div><%= link_to("詳しく見る", "/homes/#{live.id}") %></div>

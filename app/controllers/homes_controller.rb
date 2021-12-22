@@ -3,12 +3,10 @@ class HomesController < ApplicationController
 
   def index
     @posts = Post.all.order(created_at: :desc)
-    @lives = Live.order(impressions_count: :desc).take(3) # ソート機能を追加
   end
 
   def show
     @live = Live.find_by(id: params[:id])
-    impressionist(@live, nil, unique: [:session_hash]) # 追記
   end
 
   def new
@@ -35,7 +33,7 @@ class HomesController < ApplicationController
   def search
     @result = params[:name]
     if @result.present?
-      @lives = Live.where("title LIKE ? OR place LIKE ?", "%#{@result}%", "%#{@result}%")
+      @lives = Live.where("title LIKE ? OR place LIKE ? ", "%#{@result}%", "%#{@result}%")
       if @lives.empty?
         @error_message = "ごめんなさい。検索結果はありませんでした...。"
       end
@@ -70,6 +68,12 @@ class HomesController < ApplicationController
     @time = Time.current.next_week(:monday)
     @lives = Live.where(date: @time)
     @result = "次の日曜,#{@time.strftime("%-Y年%-m月%-d日")}"
+    render "/homes/search"
+  end
+
+  def search_button
+    @result = params[:name]
+    @lives = Live.left_joins(:performers).where(performer: @result)
     render "/homes/search"
   end
 end

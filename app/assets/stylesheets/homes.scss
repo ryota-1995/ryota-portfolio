@@ -19,6 +19,11 @@
   border-radius: 10px;/*角の丸み*/
 }
 
+.day_button{
+  display:flex; /*横並びにする*/
+  justify-content: center;
+}
+
 /*メディアクエリ:画面の幅によって適用するCSSを変える(レスポンシブ)*/
 
 @media screen and (max-width:1090px) {
