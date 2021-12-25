@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   get "homes/today" => "homes#today"
   get "homes/tomorrow" => "homes#tomorrow"
   get "homes/next_saturday" => "homes#next_saturday"
-  get "homes/next_monday" => "homes#next_monday"
-  get "homes/search_button" => "homes#search_button"
+  get "homes/next_sunday" => "homes#next_sunday"
   get "/homes/:id" => "homes#show"
 
   get "/" => "homes#index"

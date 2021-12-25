@@ -33,6 +33,7 @@ class HomesController < ApplicationController
   def search
     @result = params[:name]
     if @result.present?
+      #パフォーマー名も検索
       @lives = Live.where("title LIKE ? OR place LIKE ? ", "%#{@result}%", "%#{@result}%")
       if @lives.empty?
         @error_message = "ごめんなさい。検索結果はありませんでした...。"
@@ -44,36 +45,30 @@ class HomesController < ApplicationController
   end
 
   def today
-    @time = Time.current
+    @time = Date.today
     @lives = Live.where(date: @time)
     @result = "本日のライブ情報"
     render "/homes/search"
   end
 
   def tomorrow
-    @time = Time.current.tomorrow
+    @time = Date.tomorrow
     @lives = Live.where(date: @time)
     @result = "明日のライブ情報"
     render "/homes/search"
   end
 
   def next_saturday
-    @time = Time.current.next_week(:saturday)
+    @time = Date.today.next_occurring(:saturday)
     @lives = Live.where(date: @time)
-    @result = "次の土曜,#{@time.strftime("%-Y年%-m月%-d日")}"
+    @result = "次の土曜,#{@time.strftime("%-Y年%-m月%-d日")}(土)"
     render "/homes/search"
   end
 
-  def next_monday
-    @time = Time.current.next_week(:monday)
+  def next_sunday
+    @time = Date.today.next_occurring(:sunday)
     @lives = Live.where(date: @time)
-    @result = "次の日曜,#{@time.strftime("%-Y年%-m月%-d日")}"
-    render "/homes/search"
-  end
-
-  def search_button
-    @result = params[:name]
-    @lives = Live.left_joins(:performers).where(performer: @result)
+    @result = "次の日曜,#{@time.strftime("%-Y年%-m月%-d日")}(日)"
     render "/homes/search"
   end
 end
